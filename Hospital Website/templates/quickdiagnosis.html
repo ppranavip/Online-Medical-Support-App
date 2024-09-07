@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 56px;
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-nav .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .container {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem; /* Add margin at the bottom */
+    }
+
+        .card {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px; /* Adjust the max-width as needed */
+        }
+
+        h4 {
+            margin-top: 2rem;
+        }
+
+        .crossBtn {
+            color: white;
+            background: red;
+            border: none;
+            font-weight: bold;
+            margin: 8px;
+            padding: 0px 6px 3px 6px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .nthListItem {
+            border: 1px solid #007bff;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+        }
+
+        .para {
+            margin: 10px 10px 0 10px;
+            color: black;
+        }
+
+        .itemsDiv {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .listItems {
+            list-style: none;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+        #result {
+            width: 100%;
+            margin: 1.5rem 0;
+            display: none;
+        }
+
+        h3 {
+            margin-top: 1rem;
+        }
+
+        #resultPara {
+            background-color: #007bff;
+            margin: 10px;
+            color: white;
+            align-self: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symptomContainer {
+            display: none;
+        }
+        #btn{
+            margin: auto;
+        }
+        #resultDescription{
+            max-width: 800px;
+            margin: 2rem;
+        }
+        .info{
+            margin: 2rem;
+        }
+        .severityCont{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 1rem;
+        }
+        .listCont{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Your Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="landing.php">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="diagnosis.php">Diagnosis</a>
+                    <a class="dropdown-item" href="appointments.php">Book an appointment</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="card mb-3" style="max-width: 100%; margin:5rem;">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Know your health!!</h5>
+              <p class="card-text">"Quick Diagnosis empowers you to swiftly assess health concerns. Determine severity, identify diseases, list symptoms, and recommend precautions with ease. Enhance your well-being through a seamless online experience, enabling efficient appointment scheduling and personalized health management. Your journey to optimal health starts with a simple click."</p>
+              <p class="card-text"><small class="text-body-secondary">Seamless health, one click away</small></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img id="logo" src="https://th.bing.com/th/id/OIP.m4LzvoJ0wGK5_pTkA04TAAHaE8?w=236&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Logo">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="card">
+
+        <div class="card-body">
+            <h1 class="card-title text-center">
+                Quick Diagnosis
+            </h1>
+            <div class="symptomContainerInput">
+                <div>
+                    <h4>Select Symptoms</h4>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-8">
+                        <select class="form-control" id="symptomSelect">
+                            <option value=""><-- Select a symptom --></option>
+                            <!-- Add more symptoms-->
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary btn-block" onclick="addSymptom()">Add Symptom</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="symptomContainer">
+            <h4>Your Selected Symptoms will display here</h4>
+                <div class="itemsDiv">
+                    <ul class="listItems" id="listItems">
+                    </ul>
+                    <button class="btn btn-primary" id="btn" onclick="giveResult()" style="align-self: center;">Proceed</button>
+                    
+                    <div class="card" id="result">
+                        <h3 class="card-title text-center">
+                            Prediction
+                        </h3>
+                        <p id="resultPara">
+                            <!-- Result from the machine learning model will display here -->
+                        </p>
+                        <div class="severityCont">
+                            <div>
+                                <span>Total Severity: </span><span id="totalSeverity"></span>
+                            </div>
+                            <div>
+                                <span>Normalized Severity: </span><span id="normalizedSeverity"></span><span>%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- Your existing code for Quick Diagnosis card -->
+
+    <div class="card" id="resultDescription" style="display: none;">
+        <div class="info">
+            <h3 class="card-title text-center">
+                Disease Information
+            </h3>
+            <p id="descriptionPara">
+            </p>
+            <div class="listCont">
+                <div>
+                    <h4>Symptoms</h4>
+                    <ul id="symptomsList">
+                    </ul>
+                </div>
+                <div>
+                    <h4>Precautions</h4>
+                    <ul id="precautionsList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function loadSymptoms() {
+    var selectElement = document.getElementById("symptomSelect");
+
+    // Fetch symptoms from the file
+    fetch('symptoms.txt')  // Update the URL to match your Flask server endpoint
+        .then(response => response.text())
+        .then(symptomsText => {
+            // Split the text into an array of symptoms
+            var symptomsArray = symptomsText.split('\n');
+
+            // Populate the select tag with options
+            symptomsArray.forEach(symptom => {
+                if (symptom.trim() !== "") {
+                    var option = document.createElement("option");
+                    option.value = symptom;
+                    option.textContent = symptom;
+                    selectElement.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching symptoms:', error));
+}
+loadSymptoms();
+
+function addSymptom() {
+    var selectedSymptom = document.getElementById("symptomSelect").value;
+
+    if (selectedSymptom !== "") {
+        // Trim and remove extra characters from the selected symptom
+        selectedSymptom = selectedSymptom.trim();
+
+        var listItems = document.getElementById("listItems");
+
+        // Check if the symptom is already in the list
+        var isSymptomAlreadyAdded = false;
+        var existingItems = listItems.getElementsByClassName("para");
+        for (var i = 0; i < existingItems.length; i++) {
+            if (existingItems[i].textContent === selectedSymptom) {
+                isSymptomAlreadyAdded = true;
+                break;
+            }
+        }
+
+        if (isSymptomAlreadyAdded) {
+            alert("Symptom already selected!");
+        } else {
+            var listItem = document.createElement("li");
+            listItem.className = "nthListItem";
+
+            var para = document.createElement("p");
+            para.className = "para";
+            para.textContent = selectedSymptom;
+
+            var crossBtn = document.createElement("button");
+            crossBtn.className = "crossBtn";
+            crossBtn.textContent = "x";
+            crossBtn.onclick = function () {
+                listItem.remove();
+            };
+
+            listItem.appendChild(para);
+            listItem.appendChild(crossBtn);
+            listItems.appendChild(listItem);
+
+            // Display the symptomContainer div
+            showSymptomContainer();
+        }
+    }
+}
+
+
+    function showSymptomContainer() {
+        var symptomContainer = document.querySelector(".symptomContainer");
+        symptomContainer.style.display = "block";
+    }
+
+    function giveResult() {
+    var listItems = document.getElementById("listItems").getElementsByClassName("para");
+    
+    var selectedSymptomsArray = [];
+    for (var i = 0; i < listItems.length; i++) {
+        selectedSymptomsArray.push(listItems[i].textContent);
+    }
+
+    console.log("Selected Symptoms:", selectedSymptomsArray);
+    var result = document.querySelector("#result");
+    result.style.display = "block";
+    document.getElementById("btn").disabled = true;
+}
+
+function giveResult() {
+        var listItems = document.getElementById("listItems").getElementsByClassName("para");
+
+        var selectedSymptomsArray = [];
+        for (var i = 0; i < listItems.length; i++) {
+            selectedSymptomsArray.push(listItems[i].textContent);
+        }
+
+        console.log("Selected Symptoms:", selectedSymptomsArray);
+
+        // Send selected symptoms to Flask API
+        sendSymptomsToFlask(selectedSymptomsArray);
+    }
+
+    function sendSymptomsToFlask(symptomsArray) {
+    fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            symptoms: symptomsArray,
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(result => {
+        if (result.hasOwnProperty('error')) {
+            console.error('Error from Flask API:', result.error);
+        } else if (result.hasOwnProperty('prediction') && result.hasOwnProperty('description')) {
+            console.log('Result from Flask API:', result.prediction);
+
+            // Update the resultPara element with the result
+            document.getElementById("resultPara").textContent = result.prediction;
+
+            // Update the descriptionPara element with the disease description
+            document.getElementById("descriptionPara").textContent = result.description;
+
+            var precautionsList = document.getElementById('precautionsList');
+            precautionsList.innerHTML = '';
+            var samplePrecautions = result.precautions;
+            for (var i = 1; i <= Object.keys(samplePrecautions).length - 1; i++) {
+                var listItem = document.createElement('li');
+                var precautionKey = 'Precaution_' + i;
+                var precautionSentence = samplePrecautions[precautionKey];
+                var capitalizedSentence = precautionSentence.charAt(0).toUpperCase() + precautionSentence.slice(1);
+                listItem.textContent = capitalizedSentence;
+                precautionsList.appendChild(listItem);
+                }
+
+            var symptomsList = document.getElementById('symptomsList');
+            symptomsList.innerHTML = '';
+            var sampleSymptoms = result.all_symptoms;
+            console.log(sampleSymptoms);
+            for(var i =0; i <sampleSymptoms.length; i ++){
+                var listItem = document.createElement('li');
+                listItem.textContent = sampleSymptoms[i];
+                symptomsList.appendChild(listItem);
+            }
+            document.getElementById('totalSeverity').textContent = result.totalSeverity;
+            document.getElementById('normalizedSeverity').textContent = result.normalizedSeverity;
+
+            
+                } else {
+                    console.error('Unexpected response from Flask API:', result);
+                }
+            })
+            .catch(error => {
+                console.error('Error in fetch:', error);
+            });
+            var result = document.querySelector("#result");
+            result.style.display = "block";
+            document.getElementById("btn").disabled = true;
+            var descriptionCard = document.getElementById("resultDescription");
+            descriptionCard.style.display = "block";
+}
+</script>
+</body>
+</html>
